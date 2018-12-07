@@ -12,3 +12,32 @@ to  match recipes to user’s based on their kitchen inventory, for the purposes
 You’ll have to make three different new forms for adding items to the kitchen page, and in the view it’ll be three different variables that add buttons to the three sections “fridge & freezer”, “pantry” and “spice cabinet”
 On the kitchen items list, I’m not sure how to delete multiple items off the list. I’d like it to be hit the delete button, and all of the click buttons clear and you click all of the ones you want to delete and hit a confirm delete button and it deletes the ones you selected. Or a delete button auto-generates next to each item and it redirects you right back to the page.
 I think for simplicity’s sake, I’m going to skip building the “kitchen-recipes” function for now, unless I’m able to figure it out. I would need a lot of join tables and other complicated functions in order to match the items in your kitchen to the recipes. For the sinatra requirements I think I can start with a v0.1.0 that just has a kitchen database and a recipe database, then I have to style it anyway so don’t bite off more than I can chew.
+
+
+Okay data and relationships:
+
+Models:
+User will have many Recipes
+A Recipe belongs to a User
+Will a kitchen be it's own model? Yes because Kitchen == Inventory items
+so in the same way that you have mulitple tweets, you can have multiple "kitchens" that indicate the multiple items in your kitchen
+Okay maybe a better class name is Ingredients
+
+Also, I think the best way to proceed rather than worrying from the beginning how to connect the many-to-many relationship (or perhaps more complex relationship than that, since one Recipe object would need to match multiple Ingredient objects...) of the Ingredients class and Recipe class, start with a User has many Ingredients AND Recipes (so for the purposes of this they'll only be adding their own recipes or looking at other people's recipes), and both ingredients and recipes will simply belong to a User.
+
+So I Believe each table is going to need the following:
+
+User
+:username
+:email
+:password_digest
+
+ingredients
+:fridge_freezer_item
+:pantry_item
+:spice_cabinet_item
+:user_id
+
+recipes
+:content
+:user_id
