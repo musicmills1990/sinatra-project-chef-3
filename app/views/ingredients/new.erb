@@ -1,0 +1,39 @@
+<h2>Add to your Kitchen Inventory List!</h2>
+<form action="/ingredients" method="POST">
+  <label>Food in the Fridge and Freezer</label><br>
+  <% @ingredients.each do |ingredient|%>
+  <li><%= ingredient.fridge_freezer_item %></li>
+  <% end %>
+  <input type=text name="fridge_1"><br>
+  <input type=text name="fridge_2"><br>
+  <input type=text name="fridge_3"><br>
+  <input type=text name="fridge_4"><br>
+  <input type=text name="fridge_5"><br>
+  <input type=text name="fridge_6"><br>
+  <input type=text name="fridge_7"><br>
+<label>Food in the Pantry</label><br>
+  <% @ingredients.each do |ingredient|%>
+  <li><%= ingredient.pantry_item %></li>
+  <% end %>
+  <input type=text name="pantry_1"><br>
+  <input type=text name="pantry_2"><br>
+  <input type=text name="pantry_3"><br>
+  <input type=text name="pantry_4"><br>
+  <input type=text name="pantry_5"><br>
+  <input type=text name="pantry_6"><br>
+  <input type=text name="pantry_7"><br>
+  <input type=text name="pantry_8"><br>
+
+<label>Spices & Seasonings <label><br>
+  <% @ingredients.each do |ingredient|%>
+  <li><%= ingredient.spice_cabinet_item %></li>
+  <% end %>
+  <input type=text name="spice_1"><br>
+  <input type=text name="spice_2"><br>
+  <input type=text name="spice_3"><br>
+  <input type=text name="spice_4"><br>
+  <input type=text name="spice_5"><br>
+  <input type=text name="spice_6"><br>
+  <input type=text name="spice_7"><br>
+  <input type=text name="spice_8"><br>
+  <input type="submit" name="Add">
