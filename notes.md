@@ -41,3 +41,6 @@ ingredients
 recipes
 :content
 :user_id
+
+
+-I have the right logic for my username/password login and signup but how do I make it so that only one user can use their exact username?

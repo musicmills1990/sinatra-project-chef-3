@@ -18,14 +18,19 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if params[:username] != "" || params[:email] != "" || params[:password] != ""
+    if params[:username] == "" || params[:email] == "" || params[:password] == ""
       flash[:errors] = "Please don't leave any fields blank. Please try again."
       redirect '/signup'
     else
       @user = User.new(username: params[:username], email: params[:email], password: params[:password])
-      @user.save
-      session[:user_id] = @user.id
-      redirect '/home'
+      if
+        @user.save
+        session[:user_id] = @user.id
+        redirect '/home'
+      else
+        flash[:errors] = "Account creation failure: #{@user.errors.full_messages.to_sentence}."
+        redirect '/signup'
+      end
     end
   end
 
