@@ -1,5 +1,13 @@
 <h3> Welcome to Chef Helper!</h3>
 <p>What will you make today?</p>
 
+
+<% if !logged_in? %>
 <p><a href="/signup">Sign Up</a> or
 <a href="/login">Log In</a></p>
+
+<% else %>
+
+<h1> Welcome to your kitchen, <%= current_user.username %>!</h1>
+
+<% end %>

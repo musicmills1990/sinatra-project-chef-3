@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :"users/signup"
     else
-      redirect "/home"
+      redirect "/"
     end
   end
 
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :"users/login"
     else
-      redirect "/home"
+      redirect "/"
     end
   end
 
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       if
         @user.save
         session[:user_id] = @user.id
-        redirect '/home'
+        redirect '/'
       else
         flash[:errors] = "Account creation failure: #{@user.errors.full_messages.to_sentence}."
         redirect '/signup'
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect '/home'
+      redirect '/'
     else
       flash[:errors] = "Incorrect Username or Password. Please try again."
       redirect '/login'
