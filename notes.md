@@ -64,3 +64,23 @@ Things I want:
 #SO, answer is this: You have to write code that exposes ALL ingredients for the new form, but doesn't have the button clicked unless it's the
 #current_user's ingredient object, and on the index page you can only see your own ingredients. Then "other users" will have put their ingredients
 #in and those act as the suggestions for people to click, then we'll hopefully figure out the mulitple input lines on the forms at another time
+
+
+If I want to greet the current_user
+
+
+Okay interesting issue regarding delete buttons...
+-the way we've done delete before was to add a delete feature to a show page for an individual object, but if I want to delete just one item, each Ingredient object may be tied to 3 attributes: fridge_freezer_item, pantry_item, and spice_cabinet_item.. how do I delete just the attribute @ingredient.fridge_freezer_item without destroying the whole object? Still wondering if this is the right model setup for my ingredients....
+
+
+
+  <!--  <% @ingredients.each do |ingredient|%>
+    <li><%= ingredient.pantry_item %></li>
+    <% end %>-->
+  <!--  <% @ingredients.each do |ingredient|%>
+    <li><%= ingredient.spice_cabinet_item %></li>
+    <% end %>-->
+  <!-- will need to add that "clicked if" logic for if an item belongs to the current user, because otherwise I think it'll add it again if they click it. -->
+ <!-- <% @ingredients.each do |ingredient|%>
+  <li><%= ingredient.fridge_freezer_item %></li>
+  <% end %>-->
