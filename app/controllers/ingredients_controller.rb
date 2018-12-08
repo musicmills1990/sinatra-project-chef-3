@@ -40,6 +40,6 @@ class IngredientsController < ApplicationController
   end
 
 
-  get "/ingredients"
+
 
 end
