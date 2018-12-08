@@ -1,35 +1,20 @@
 <h2>Your Kitchen Inventory<h2>
   <h3>Fridge & Freezer </h3>
   <% @ingredients.each do |ingredient|%>
-  <%= ingredient.fridge_freezer_item %>
+    <% if ingredient.fridge_freezer_item.size == 0 %>
+      <%= flash[:errors] = "Fridge and Freezer are empty!" %>
+    <% else %>
+      <%= ingredient.fridge_freezer_item %>
+    <% end %> 
   <% end %>
-  <p>button</p>
-  <p>button</p>
-  <p>button</p>
-  <p>button</p>
-  <p>button</p>
   <br>
   <h3> Pantry </h3>
   <% @ingredients.each do |ingredient|%>
   <%= ingredient.pantry_item %>
   <% end %>
-  <p>button</p>
-  <p>button</p>
-  <p>button</p>
-  <p>button</p>
-  <p>button</p>
-  <p>button</p>
   <br>
   <h3>Spice Cabinet</h3>
   <% @ingredients.each do |ingredient|%>
   <%= ingredient.spice_cabinet_item %>
   <% end %>
-  <p>button</p>
-  <p>button</p>
-  <p>button</p>
-  <p>button</p>
-  <p>button</p>
-  <p>button</p>
-  <p>button</p>
-
   <a href="/ingredients/new">Add New Ingredients</a>
