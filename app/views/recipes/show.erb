@@ -1,12 +1,13 @@
 <h2>Your Recipe: <%= @recipe.content %></h2>
-<h2><%= @recipe.recipe_first_ingredient %></h2>
-<h2><%= @recipe.recipe_second_ingredient %></h2>
-<h2><%= @recipe.recipe_third_ingredient %></h2>
-<h2><%= @recipe.recipe_fourth_ingredient %></h2>
-<h2><%= @recipe.instructions %></h2>
+<ol>
+  <li><h4><%= @recipe.recipe_first_ingredient %></h4></li>
+  <li><h4><%= @recipe.recipe_second_ingredient %></h4></li>
+  <li><h4><%= @recipe.recipe_third_ingredient %></h4></li>
+  <li><h4><%= @recipe.recipe_fourth_ingredient %></h4></li></ol>
+<p><i>"<%= @recipe.instructions %>"</i></p>
 <p><%= @recipe.formatted_created_at %></p>
-
-<form action="/recipe/<%=@recipe.id%>/delete" method="post">
+<a href="/recipes/<%=@recipe.id%>/edit">Edit</a>
+<form action="/recipes/<%=@recipe.id%>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input id="Delete Recipe" type="submit" value="Delete Recipe">
 </form>

@@ -1,1 +1,17 @@
 <h1> Here's where you can edit your recipe </h1>
+<form action="/recipes/<%=@recipe.id%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label>Recipe Title:</label>
+  <input type="text" value="<%=@recipe.content%>" name="content"><br>
+  <label>First Ingredient:</label>
+    <input type="text" value="<%=@recipe.recipe_first_ingredient%>" name="recipe_first_ingredient"><br>
+  <label>Second Ingredient:</label>
+    <input type="text" value="<%=@recipe.recipe_second_ingredient%>" name="recipe_second_ingredient"><br>
+  <label>Third Ingredient:</label>
+    <input type="text" value="<%=@recipe.recipe_third_ingredient%>" name="recipe_third_ingredient"><br>
+  <label>Fourth Ingredient:</label>
+    <input type="text" value="<%=@recipe.recipe_fourth_ingredient%>" name="recipe_fourth_ingredient"><br>
+  <label>Instructions:</label>
+    <input type="text" value="<%=@recipe.instructions%>" name="instructions"><br>
+  <input id="Edit Recipe" type="submit" value="Edit Recipe">
+</form>
