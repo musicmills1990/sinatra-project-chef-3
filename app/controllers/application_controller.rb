@@ -14,11 +14,6 @@ class ApplicationController < Sinatra::Base
     erb :"index"
   end
 
-  get '/home' do
-    @users = User.all
-    erb :"home"
-  end
-
 
   helpers do
 

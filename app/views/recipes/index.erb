@@ -1,0 +1,6 @@
+<h2>Welcome to Recipes, <%=current_user.username%>! </h2>
+
+  <% @recipes.each do |recipe| %>
+    <h4><li><%= recipe.content %></h4>
+    <p><%= recipe.formatted_created_at %></p></li>
+  <% end %>

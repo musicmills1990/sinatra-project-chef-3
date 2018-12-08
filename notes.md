@@ -1,5 +1,5 @@
 
-There will be three models: Users, Recipes, and Kitchens.
+There will be three models: Users, Recipes, and Kitchens(now called Ingredients).
 
 Users will save a users kitchen inventory, allow them to log in and out.
 
@@ -7,8 +7,8 @@ Kitchens will allow users to add to their inventory, edit their inventory, delet
 
 Recipes will display the instructions to make a dish (if possible it would be awesome to embed a instructional cooking video from youtube), new recipes can be added by users, a user that creates a recipe can edit or delete their own recipe. A recipe will appear available to a user if they have the ingredients it requires in their kitchen inventory. A user should be able to add a new recipe without having the ingredients it requires in their kitchen. So maybe there will be three options to view for a user: “Useful Recipes”, “All recipes”, and “My recipes”.
 
-So some version 1.0 basic functionality:
-to  match recipes to user’s based on their kitchen inventory, for the purposes of this very basic version of this app I’m going to skip ingredient amount matching. If a user lists “chicken” and “black beans” in their kitchen inventory, and a recipe calls for chicken and black beans, it will appear to them, and in the recipe instructions it will list the quantity required. If the user doesn’t have enough for the recipe they’ll have to discover that out for themselves for this version.
+So some version 1.0 basic "MVP" functionality:
+to  match recipes to user’s based on their kitchen inventory, for the purposes of this very basic version of this app I’m going to skip ingredient quantity matching. If a user lists “chicken” and “black beans” in their kitchen inventory, and a recipe calls for chicken and black beans, it will appear to them, and in the recipe instructions it will list the quantity required. If the user doesn’t have enough for the recipe they’ll have to discover that out for themselves for this version.
 You’ll have to make three different new forms for adding items to the kitchen page, and in the view it’ll be three different variables that add buttons to the three sections “fridge & freezer”, “pantry” and “spice cabinet”
 On the kitchen items list, I’m not sure how to delete multiple items off the list. I’d like it to be hit the delete button, and all of the click buttons clear and you click all of the ones you want to delete and hit a confirm delete button and it deletes the ones you selected. Or a delete button auto-generates next to each item and it redirects you right back to the page.
 I think for simplicity’s sake, I’m going to skip building the “kitchen-recipes” function for now, unless I’m able to figure it out. I would need a lot of join tables and other complicated functions in order to match the items in your kitchen to the recipes. For the sinatra requirements I think I can start with a v0.1.0 that just has a kitchen database and a recipe database, then I have to style it anyway so don’t bite off more than I can chew.
@@ -66,21 +66,15 @@ Things I want:
 #in and those act as the suggestions for people to click, then we'll hopefully figure out the mulitple input lines on the forms at another time
 
 
-If I want to greet the current_user
+√If I want to greet the current_user
 
 
 Okay interesting issue regarding delete buttons...
 -the way we've done delete before was to add a delete feature to a show page for an individual object, but if I want to delete just one item, each Ingredient object may be tied to 3 attributes: fridge_freezer_item, pantry_item, and spice_cabinet_item.. how do I delete just the attribute @ingredient.fridge_freezer_item without destroying the whole object? Still wondering if this is the right model setup for my ingredients....
 
+Issues 12/8 11:45am
 
-
-  <!--  <% @ingredients.each do |ingredient|%>
-    <li><%= ingredient.pantry_item %></li>
-    <% end %>-->
-  <!--  <% @ingredients.each do |ingredient|%>
-    <li><%= ingredient.spice_cabinet_item %></li>
-    <% end %>-->
-  <!-- will need to add that "clicked if" logic for if an item belongs to the current user, because otherwise I think it'll add it again if they click it. -->
- <!-- <% @ingredients.each do |ingredient|%>
-  <li><%= ingredient.fridge_freezer_item %></li>
-  <% end %>-->
+Ingredient side:
+-New form buttons don't save those ingredients to the current_user's collection of items (confused conceptually about how this would work)
+-Delete button is conceptually an issue (see notes above)
+okay I might need to ask for help about this, for now I'm going to start building out my recipe side
