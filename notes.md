@@ -78,3 +78,10 @@ Ingredient side:
 -New form buttons don't save those ingredients to the current_user's collection of items (confused conceptually about how this would work)
 -Delete button is conceptually an issue (see notes above)
 okay I might need to ask for help about this, for now I'm going to start building out my recipe side
+
+
+Recipe side:
+I needed to add more columns to the recipe table so a person could build their recipe in a more organize way than a single string, which would be ugly.
+I still need to:
+1. add edit and delete features in the controller, but that's pretty easy.
+2. look into that connection between user and recipes, and be able to display whose recipes are whose
