@@ -4,17 +4,17 @@
     <% if ingredient.fridge_freezer_item.size == 0 %>
       <%= flash[:errors] = "Fridge and Freezer are empty!" %>
     <% else %>
-      <%= ingredient.fridge_freezer_item %>
-    <% end %> 
+      <li><%= ingredient.fridge_freezer_item %></li>
+    <% end %>
   <% end %>
   <br>
   <h3> Pantry </h3>
   <% @ingredients.each do |ingredient|%>
-  <%= ingredient.pantry_item %>
+  <li><%= ingredient.pantry_item %></li>
   <% end %>
   <br>
   <h3>Spice Cabinet</h3>
   <% @ingredients.each do |ingredient|%>
-  <%= ingredient.spice_cabinet_item %>
+  <li><%= ingredient.spice_cabinet_item %></li>
   <% end %>
   <a href="/ingredients/new">Add New Ingredients</a>

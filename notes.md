@@ -44,3 +44,23 @@ recipes
 
 
 -I have the right logic for my username/password login and signup but how do I make it so that only one user can use their exact username?
+^^ figured this out: uniqueness: true in the inherited model Users
+
+
+Things I want:
+
+- I want to be able to create delete buttons that will sit next to each item on the list*
+- I'd like line 5 of ingredients_controller to work such that a user only see their own ingredient objects.
+- I obviously would like to also be able to create multiple buttons within each section of the ingredient new form**
+
+*Obviously the better version of this is to be able to click a delete button that brings up selectors for each item and you can delete as many as you want.
+**would this mean I need to have multiple ingredient objects nested inside of my form? You can't have an attribute as an array, can you?*
+
+#because I'm having trouble creating multiple spaces for new ingredient items,
+#I'd like to seed some suggestive data for the user to have available to just click if they have it in their fridge.
+#Is it possible to seed data without adding it to the index page? Well, in theory if each user's ingredients page only showed their own
+#ingredient objects, then if you make an admin user that has all of those ingredients already input.
+
+#SO, answer is this: You have to write code that exposes ALL ingredients for the new form, but doesn't have the button clicked unless it's the
+#current_user's ingredient object, and on the index page you can only see your own ingredients. Then "other users" will have put their ingredients
+#in and those act as the suggestions for people to click, then we'll hopefully figure out the mulitple input lines on the forms at another time
