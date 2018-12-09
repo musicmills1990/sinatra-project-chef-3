@@ -22,6 +22,16 @@ class RecipesController < ApplicationController
     end
   end
 
+  get '/recipes/your_recipes' do
+    if logged_in?
+      @recipes = Recipe.all
+      erb :"recipes/user_show"
+    else
+      flash[:errors] = "Please log in to view your recipes."
+      redirect '/login'
+    end
+  end
+
   post '/recipes' do
     if logged_in?
       if params[:recipe_first_ingredient] == "" && params[:instructions] == ""
