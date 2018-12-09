@@ -2,7 +2,6 @@ class IngredientsController < ApplicationController
 
   get '/ingredients' do
     if logged_in?
-      #if current_user.ingredients == User.ingredients
       @ingredients = Ingredient.all
       erb :"ingredients/index"
     else
@@ -56,8 +55,4 @@ class IngredientsController < ApplicationController
       rediret "/login"
     end
   end
-
-
-
-
 end

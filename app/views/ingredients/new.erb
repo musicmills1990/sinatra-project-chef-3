@@ -1,29 +1,11 @@
 <h2>Add to your Kitchen Inventory List!</h2>
 <form action="/ingredients" method="POST">
-  <label>Food in the Fridge and Freezer</label><br>
+  <label>Enter Food Product:</label><br>
+  <input type="text" name="item" placeholder="Food Product">
+  <label>Fridge, freezer, pantry, or spice cabinet item?</label>
+  <input type="text" name="type" placeholder="Food type">
   <% @ingredients.each do |ingredient| %>
-    <% if ingredient.fridge_freezer_item != "" || ingredient.fridge_freezer_item != " " %>
-      <input type="checkbox" name="ingredient_fridge" value="<%= ingredient.id %>"><%= ingredient.fridge_freezer_item %></input><br>
-    <%end%>
+  <input type="checkbox" name="ingredient_fridge" value="<%= ingredient.id %>"><%= ingredient.type %></input><br>
   <%end%>
-
-  <br><input type=text name="fridge"><br>
-
-  <label>Food in the Pantry</label><br>
-  <% @ingredients.each do |ingredient| %>
-    <% if ingredient.pantry_item != "" || ingredient.pantry_item != " " %>
-      <input type="checkbox" name="ingredient_pantry" value=" <%= ingredient.id %>"><%= ingredient.pantry_item %></input><br>
-    <% end %>
-  <%end%>
-
-  <br><input type=text name="pantry"><br>
-
-  <label>Spices & Seasonings <label><br>
-  <% @ingredients.each do |ingredient| %>
-    <% if ingredient.spice_cabinet_item != "" || ingredient.spice_cabinet_item != " "%>
-      <input type="checkbox" name="ingredient_spice" value=" <%= ingredient.id %>"><%= ingredient.spice_cabinet_item %></input><br>
-    <% end %>
-  <%end%>
-
-  <br><input type=text name="spice"><br>
   <input type="submit" name="Add">
+</form>
