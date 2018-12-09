@@ -1,11 +1,11 @@
 <h2>Add to your Kitchen Inventory List!</h2>
 <form action="/ingredients" method="POST">
   <label>Enter Food Product:</label><br>
-  <input type="text" name="item" placeholder="Food Product">
-  <label>Fridge, freezer, pantry, or spice cabinet item?</label>
-  <input type="text" name="type" placeholder="Food type">
+  <input type="text" name="item" placeholder="Food Product"><br>
+  <label>Fridge, freezer, pantry, or spice cabinet item?</label><br>
+  <input type="text" name="food_type" placeholder="Food type"><br>
   <% @ingredients.each do |ingredient| %>
-  <input type="checkbox" name="ingredient_fridge" value="<%= ingredient.id %>"><%= ingredient.type %></input><br>
+  <input type="radio" name="existing_type" value="<%= ingredient.id %>"><%= ingredient.food_type %></input><br>
   <%end%>
   <input type="submit" name="Add">
 </form>

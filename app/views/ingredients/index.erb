@@ -1,9 +1,9 @@
 <h2>Your Kitchen Inventory<h2>
-  <h3>Fridge & Freezer </h3>
+
   <% @ingredients.each do |ingredient|%>
-      <% if ingredient.user_id == current_user.id && ingredient.fridge_freezer_item != ""%>
+      <% if ingredient.user_id.to_i == current_user.id && ingredient.item != "" && ingredient.food_type != ""%>
       <li>
-        <%= ingredient.fridge_freezer_item %>
+        <%= ingredient.item %> - <i><%= ingredient.food_type %></i>
         <form action="/ingredients/<%=ingredient.id%>/delete" method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
         <input id="Delete ingredient" type="submit" value="Delete">
@@ -11,30 +11,5 @@
       </li>
     <% end %>
   <% end %>
-  <br>
-  <h3> Pantry </h3>
-  <% @ingredients.each do |ingredient|%>
-    <% if ingredient.user_id == current_user.id && ingredient.pantry_item != ""%>
-    <li>
-      <%= ingredient.pantry_item %>
-      <form action="/ingredients/<%=ingredient.id%>/delete" method="post">
-      <input id="hidden" type="hidden" name="_method" value="delete">
-      <input id="Delete ingredient" type="submit" value="Delete">
-      </form>
-    </li>
-    <% end %>
-  <% end %>
-  <br>
-  <h3>Spice Cabinet</h3>
-  <% @ingredients.each do |ingredient|%>
-    <% if ingredient.user_id == current_user.id && ingredient.spice_cabinet_item != ""%>
-    <li>
-      <%= ingredient.spice_cabinet_item %>
-      <form action="/ingredients/<%=ingredient.id%>/delete" method="post">
-      <input id="hidden" type="hidden" name="_method" value="delete">
-      <input id="Delete ingredient" type="submit" value="Delete">
-      </form>
-    </li>
-    <% end %>
-  <% end %>
+
   <a href="/ingredients/new">Add New Ingredients</a>
