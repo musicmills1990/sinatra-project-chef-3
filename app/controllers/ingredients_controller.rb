@@ -25,7 +25,8 @@ class IngredientsController < ApplicationController
         flash[:error] = "You surely must have at least one thing in your kitchen. Please add some items."
         redirect "/ingredients/new"
       else
-        @ingredient = current_user.ingredients.new(fridge_freezer_item: params[:fridge], pantry_item: params[:pantry], spice_cabinet_item: params[:spice])
+        @ingredient = current_user.ingredients.new(
+        fridge_freezer_item: params[:fridge], pantry_item: params[:pantry], spice_cabinet_item: params[:spice])
         #how do I iterate over the 'clicked' ingredient objects' attributes and add them to the current_user's kitchen?
         if @ingredient.save
           flash[:message] = "Items successfully added. Nice!"

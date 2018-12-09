@@ -1,21 +1,21 @@
 <h2>Your Kitchen Inventory<h2>
   <h3>Fridge & Freezer </h3>
   <% @ingredients.each do |ingredient|%>
-      <% if ingredient.user_id == current_user.id %>
+      <% if ingredient.user_id == current_user.id && ingredient.fridge_freezer_item != ""%>
         <li><%= ingredient.fridge_freezer_item %></li>
       <% end %>
   <% end %>
   <br>
   <h3> Pantry </h3>
   <% @ingredients.each do |ingredient|%>
-    <% if ingredient.user_id == current_user.id %>
+    <% if ingredient.user_id == current_user.id && ingredient.pantry_item != ""%>
       <li><%= ingredient.pantry_item %></li>
     <% end %>
   <% end %>
   <br>
   <h3>Spice Cabinet</h3>
   <% @ingredients.each do |ingredient|%>
-    <% if ingredient.user_id == current_user.id %>
+    <% if ingredient.user_id == current_user.id && ingredient.spice_cabinet_item != ""%>
       <li><%= ingredient.spice_cabinet_item %></li>
     <% end %>
   <% end %>
