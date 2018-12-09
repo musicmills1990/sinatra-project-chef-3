@@ -1,3 +1,4 @@
+#adds edit and delete protection back in
 class RecipesController < ApplicationController
 
   get '/recipes' do
