@@ -20,7 +20,7 @@
 
   <label>Spices & Seasonings <label><br>
   <% @ingredients.each do |ingredient| %>
-    <% if ingredient.spice_cabinet_item != "" || ingredient.spice_cabinet_item != " " %>
+    <% if ingredient.spice_cabinet_item != "" || ingredient.spice_cabinet_item != " "%>
       <input type="checkbox" name="ingredient_spice" value=" <%= ingredient.id %>"><%= ingredient.spice_cabinet_item %></input><br>
     <% end %>
   <%end%>

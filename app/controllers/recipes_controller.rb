@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
 
   get '/recipes/new' do
     if logged_in?
+      @recipes = Recipe.all
       erb :"recipes/new"
     else
       flash[:errors] = "Please log in to add new recipes."
@@ -26,7 +27,7 @@ class RecipesController < ApplicationController
         flash[:errors] = "You must have at least one ingredient and recipe instructions to submit."
         redirect '/recipes/new'
       else
-        @recipe = Recipe.new(content: params[:content], recipe_first_ingredient: params[:recipe_first_ingredient], recipe_second_ingredient: params[:recipe_second_ingredient], recipe_third_ingredient: params[:recipe_third_ingredient], recipe_fourth_ingredient: params[:recipe_fourth_ingredient], instructions: params[:instructions])
+        @recipe = current_user.recipes.new(content: params[:content], recipe_first_ingredient: params[:recipe_first_ingredient], recipe_second_ingredient: params[:recipe_second_ingredient], recipe_third_ingredient: params[:recipe_third_ingredient], recipe_fourth_ingredient: params[:recipe_fourth_ingredient], instructions: params[:instructions])
         if @recipe.save
           flash[:message] = "New Recipe Successfully added!"
           redirect "/recipes/#{@recipe.id}"
@@ -53,7 +54,12 @@ class RecipesController < ApplicationController
   get '/recipes/:id/edit' do
     if logged_in?
       @recipe = Recipe.find_by_id(params[:id])
-      erb :"recipes/edit"
+      if @recipe && @recipe.user == current_user
+        erb :"recipes/edit"
+      else
+        flash[:errors] = "You can only edit your own recipes"
+        redirect "/recipes"
+      end
     else
       flash[:errors] = "You have to be logged in to view this page. Please log in."
       redirect '/login'
@@ -67,7 +73,7 @@ class RecipesController < ApplicationController
         redirect "recipe/#{params[:id]}/edit"
       else
         @recipe = Recipe.find_by_id(params[:id])
-        if @recipe # && @recipe.user == current_user
+        if @recipe && @recipe.user == current_user
           if @recipe.update(content: params[:content], recipe_first_ingredient: params[:recipe_first_ingredient], recipe_second_ingredient: params[:recipe_second_ingredient], recipe_third_ingredient: params[:recipe_third_ingredient], recipe_fourth_ingredient: params[:recipe_fourth_ingredient], instructions: params[:instructions])
             flash[:message] = "Recipe successfully updated!"
             redirect "/recipes/#{@recipe.id}"
@@ -91,7 +97,7 @@ class RecipesController < ApplicationController
   delete '/recipes/:id/delete' do
     if logged_in?
       @recipe = Recipe.find_by_id(params[:id])
-      if @recipe #&& @recipe.user == current_user --> right now my user_id in the @recipe object is nil, not sure why...
+      if @recipe && @recipe.user == current_user
         @recipe.delete
         flash[:message] = "recipe successfully deleted!"
         redirect "/recipes"
