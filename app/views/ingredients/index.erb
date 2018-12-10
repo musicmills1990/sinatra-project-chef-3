@@ -1,9 +1,8 @@
-<h2>Your Kitchen Inventory<h2>
-<div class="kitchen">
+<h2>Your Kitchen Inventory</h2>
   <% @ingredients.each do |ingredient|%>
       <% if ingredient.user_id.to_i == current_user.id && ingredient.item != "" && ingredient.food_type != ""%>
       <li>
-        <%= ingredient.item %> - <i><%= ingredient.food_type %></i>
+        <%= ingredient.item %> - <i><%= ingredient.food_type.downcase%></i>
         <form action="/ingredients/<%=ingredient.id%>/delete" method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
         <input id="Delete ingredient" type="submit" value="Delete">
@@ -11,6 +10,5 @@
       </li>
     <% end %>
   <% end %>
-</div>
 
   <a href="/ingredients/new">Add New Ingredients</a>

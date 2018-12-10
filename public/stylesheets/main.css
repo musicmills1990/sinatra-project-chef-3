@@ -45,8 +45,10 @@
   h2 {
     border-bottom: 2px solid #ccc;
     font-size: 24px;
+    font-family: fantasy;
     line-height: 36px;
     margin-bottom: 16px;
+    color: #055
   }
 
   h3 {
@@ -56,10 +58,30 @@
     color: #000
   }
 
-  p {
-    margin-bottom: 18px;
+  h4 {
+    font-size: 16px;
+    font-family: "Book Antiqua";
+    line-height: 20px;
+    color: #033
   }
 
+  p {
+    margin-bottom: 18px;
+    font-family: "Book Antiqua";
+    color: #000
+  }
+
+  label {
+    font-weight: bold;
+    font-family: serif;
+  }
+
+  li {
+    font-family: fantasy;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+  }
   .main {
     overflow: hidden;
   }
@@ -135,9 +157,5 @@
   h2 {
     font-size: 18px;
     line-height: 24px;
-  }
-
-  .kitchen {
-    background-image: url('../images/kitchen.jpg')
   }
 }

@@ -55,4 +55,13 @@ class UsersController < ApplicationController
       redirect '/'
     end
   end
+
+  get '/matches' do
+    if logged_in?
+      erb :"users/matches"
+    else
+      flash[:message] = "You must be logged in to view this page. Please log in."
+      redirect '/'
+    end
+  end
 end
