@@ -1,5 +1,5 @@
 <h2>Your Kitchen Inventory<h2>
-
+<div class="kitchen">
   <% @ingredients.each do |ingredient|%>
       <% if ingredient.user_id.to_i == current_user.id && ingredient.item != "" && ingredient.food_type != ""%>
       <li>
@@ -11,5 +11,6 @@
       </li>
     <% end %>
   <% end %>
+</div>
 
   <a href="/ingredients/new">Add New Ingredients</a>

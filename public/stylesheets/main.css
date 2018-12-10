@@ -24,7 +24,7 @@
   }
 
   .wrapper {
-    background: #ddd;
+    background: #ccf;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -135,5 +135,9 @@
   h2 {
     font-size: 18px;
     line-height: 24px;
+  }
+
+  .kitchen {
+    background-image: url('../images/kitchen.jpg')
   }
 }
