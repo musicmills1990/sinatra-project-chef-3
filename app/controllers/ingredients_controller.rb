@@ -55,4 +55,16 @@ class IngredientsController < ApplicationController
       rediret "/login"
     end
   end
+
+  helpers do
+
+    def recipe_match?
+      #if you were to iterate over the current_user's Ingredient objects and compare the item attribute with
+      #each of the four recipe ingredients within a recipe object, if ingredient.item matches with all four recipe.recipe_ingredients,
+      #then return that recipe object.
+    end
+
+
+  end
+
 end

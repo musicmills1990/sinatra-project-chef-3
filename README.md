@@ -1,7 +1,9 @@
 # sinatra-project-chef-3
 
-Sinatra Project Concept: Chef Helper (more creative title eventually)
+Welcome to ChefHelper!
 
-I want to create an app that keeps track of what you have in your kitchen and recommends recipes based on what you have available.
+Chefhelper is a recipe and kitchen inventory app that allows you to keep track of what's in your kitchen and allows you to share recipes with other Chefhelper users.
 
-You’ll log in and fill in your kitchen inventory. There will be a series of recipes, but users can also add recipes to the recipes list.
+The goal of Chefhelper is to create a matching algorithm that assesses what you have in your kitchen and recommends recipes that match the ingredients you have available. For now it is simply a double sided data management system.
+
+Clone, run bundle, run shotgun, and enjoy!
