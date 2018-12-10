@@ -1,6 +1,6 @@
 <h2>Welcome to All Recipes, <%=current_user.username%>! </h2>
 
   <% @recipes.each do |recipe| %>
-    <h4><li><a href="/recipes/<%=recipe.id%>"><%= recipe.content %></a></h4>
+    <h4><li><a href="/recipes/<%=recipe.id%>"><%= recipe.content %></a><i> by <%= recipe.user.username %></i></h4>
     <p><%= recipe.formatted_created_at %></p></li>
   <% end %>
