@@ -3,7 +3,7 @@
       <% if ingredient.user_id.to_i == current_user.id && ingredient.item != "" && ingredient.food_type != ""%>
       <li>
         <%= ingredient.item %> - <i><%= ingredient.food_type.downcase%></i>
-        <form action="/ingredients/<%=ingredient.id%>/delete" method="post">
+        <form action="/ingredients/<%=ingredient.id%>" method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
         <input id="Delete ingredient" type="submit" value="Delete">
         </form>

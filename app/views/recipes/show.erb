@@ -7,7 +7,7 @@
 <p><i>"<%= @recipe.instructions %>"</i></p>
 <p><%= @recipe.formatted_created_at %></p>
 <h4><a href="/recipes/<%=@recipe.id%>/edit">Edit</a></h4>
-<form action="/recipes/<%=@recipe.id%>/delete" method="post">
+<form action="/recipes/<%=@recipe.id%>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input id="Delete Recipe" type="submit" value="Delete Recipe">
 </form>

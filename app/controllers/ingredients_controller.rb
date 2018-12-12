@@ -39,7 +39,7 @@ class IngredientsController < ApplicationController
     end
   end
 
-  delete '/ingredients/:id/delete' do
+  delete '/ingredients/:id' do
     if logged_in?
       @ingredient = Ingredient.find_by_id(params[:id])
       if @ingredient && @ingredient.user == current_user

@@ -105,7 +105,7 @@ class RecipesController < ApplicationController
 
 
 
-  delete '/recipes/:id/delete' do
+  delete '/recipes/:id' do
     if logged_in?
       @recipe = Recipe.find_by_id(params[:id])
       if @recipe && @recipe.user == current_user
